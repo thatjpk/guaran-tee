@@ -1,5 +1,5 @@
 # guaran-tee
-A clone of the POSIX `tee` utility that doesn't copy output to stdout on a write error to the file.
+👕 A clone of the POSIX 'tee' utility that promises to write to the file before forwarding to stdout.
 
 ## Rationale
 
