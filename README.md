@@ -45,7 +45,7 @@ Testing this on the GNU implementation of `tee` verifies this:
     $                                                                               
     
 The "test" made it to stdout but not into the file.
-    
+
 So `tee` will let us know via exit status, but will merrily forward stuff to
 stdout while writes to the file fail.  For lots of usecases, that's probably
 fine, but in our's we just deleted a bunch of stuff without getting a copy in
