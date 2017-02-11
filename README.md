@@ -53,6 +53,9 @@ a file through gzip to get a compressed file.  Our tee clone can reasonably
 determine if the write to the file was successsul, but can it determine if,
 in the case of process substitution, the other command got the data into a file?
 
+Ensuring data makes it to a successful write may also introduce extra latency
+or impact throughput between stdin and stdout.  Maybe that's okay?
+
 ## TODOs
 
  - Figure out if this is actually a good idea or not.
