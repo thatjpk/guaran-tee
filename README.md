@@ -69,5 +69,5 @@ or impact throughput between stdin and stdout.  Maybe that's okay?
 
 ## TODOs
 
- - Figure out if this is actually a good idea or not.
+ - Figure out if this is actually a good idea or not.  (See [issue](#1).)
  
