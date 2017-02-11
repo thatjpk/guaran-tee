@@ -34,7 +34,18 @@ Take a look at the
 for `tee` and we'd find:
 
 > If a write to any successfully opened file operand fails, writes to other successfully opened file operands and standard output shall continue, but the exit status shall be non-zero.
+
+Testing this on the GNU implementation of `tee` verifies this:
+
+    $ touch file.txt                                                                
+    $ chmod 000 file.txt                                                            
+    $ echo test | tee file.txt                                                      
+    tee: file.txt: Permission denied                                                
+    test                                                                            
+    $                                                                               
     
+The "test" made it to stdout but not into the file.
+    
 So `tee` will let us know via exit status, but will merrily forward stuff to
 stdout while writes to the file fail.  For lots of usecases, that's probably
 fine, but in our's we just deleted a bunch of stuff without getting a copy in
@@ -49,7 +60,7 @@ it into the file.
 
 One of the uses flung around in the GNU coreutils manual for `tee` is using the
 shell's process substiution syntax as the FILE argument to do stuff like write
-a file through gzip to get a compressed file.  Our tee clone can reasonably
+a file through gzip to get a compressed file.  Our `tee` clone can reasonably
 determine if the write to the file was successsul, but can it determine if,
 in the case of process substitution, the other command got the data into a file?
 
